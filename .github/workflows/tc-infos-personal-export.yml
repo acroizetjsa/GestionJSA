@@ -7,6 +7,12 @@ on:
     paths:
       - '.github/workflows/tc-infos-personal-export.yml'
       - 'tools/tc_infos_export.py'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/tc-infos-personal-export.yml'
+      - 'tools/tc_infos_export.py'
   workflow_dispatch:
 
 permissions:

@@ -44,3 +44,5 @@ jobs:
           path: tc_infos_vehicules.xlsx
           if-no-files-found: error
           retention-days: 7
+
+# Retry trigger: 2026-08-24

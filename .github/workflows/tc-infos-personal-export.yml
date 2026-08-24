@@ -35,14 +35,15 @@ jobs:
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 openpyxl
 
       - name: Export public vehicle data
-        run: python tools/tc_infos_export.py --max-network-id 2200 --delay 0.8 --output tc_infos_vehicules.xlsx
+        run: python tools/tc_infos_export.py --max-network-id 2200 --delay 0.8 --fail-if-empty --output tc_infos_vehicules.xlsx
 
       - name: Upload Excel
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tc-infos-personal-export
           path: tc_infos_vehicules.xlsx
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
 
-# Retry trigger: 2026-08-24 13:05 Europe/Paris
+# Retry trigger: 2026-08-24 17:44 Europe/Paris
